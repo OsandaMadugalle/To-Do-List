@@ -1,75 +1,143 @@
-/* index.css */
-
+/* General Page Styling */
 body {
-    font-family: Arial, sans-serif;
-    background: #f7f7f7;
-    margin: 0;
-    padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f6f8;
+  padding: 20px;
+  margin: 0;
 }
 
-div {
-    max-width: 400px;
-    margin: 40px auto;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    padding: 32px 24px;
-}
-
+/* Header */
 h3 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 24px;
-    letter-spacing: 1px;
+  color: #333;
+  font-size: 26px;
+  margin-bottom: 20px;
+}
+
+/* Input Field and Button Row */
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
 }
 
 input[type="text"] {
-    width: 65%;
-    padding: 8px;
-    border: 1px solid #bbb;
-    border-radius: 4px;
-    margin-right: 8px;
-    font-size: 16px;
-    box-sizing: border-box;
+  flex: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
+.add-task-button {
+  padding: 10px 16px;
+  font-size: 16px;
+  background-color: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-task-button:hover {
+  background-color: #1565c0;
+}
+
+/* Task List Container */
+.task-list ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Individual Task Item with 4 Columns */
+.task-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  align-items: center;
+  gap: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+/* Column Styling */
+.col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.col-task {
+  word-break: break-word;
+  font-size: 16px;
+  color: #444;
+  padding-right: 10px;
+}
+
+/* Button Styles */
 button {
-    background: #1976d2;
-    color: #fff;
-    border: none;
-    padding: 7px 12px;
-    border-radius: 4px;
-    margin-left: 4px;
-    cursor: pointer;
+  padding: 6px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: none;
+  transition: background-color 0.2s ease;
+}
+
+.delete-button {
+  background-color: #e53935;
+  color: white;
+}
+.delete-button:hover {
+  background-color: #c62828;
+}
+
+.up-button,
+.down-button {
+  background-color: #eeeeee;
+  color: #333;
+}
+
+.up-button:hover,
+.down-button:hover {
+  background-color: #dddddd;
+}
+
+/* Refined responsive layout */
+@media screen and (max-width: 800px) {
+  .task-item {
+    grid-template-columns: 1fr auto auto auto;
+    gap: 8px;
+  }
+
+  .col-task {
     font-size: 15px;
-    transition: background 0.2s;
+  }
+
+  button {
+    font-size: 13px;
+    padding: 5px 8px;
+  }
 }
 
-button:hover {
-    background: #1565c0;
-}
+@media screen and (max-width: 600px) {
+  .task-item {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    text-align: left;
+  }
 
-ol {
-    margin-top: 20px;
-    padding-left: 20px;
-}
+  .col {
+    justify-content: flex-start;
+    margin-top: 5px;
+  }
 
-li {
-    margin-bottom: 12px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-li button {
+  .col-task {
+    grid-column: 1;
     font-size: 14px;
-    padding: 4px 8px;
-}
-
-li button:nth-child(2) {
-    background: #e53935;
-}
-
-li button:nth-child(2):hover {
-    background: #b71c1c;
+  }
 }
